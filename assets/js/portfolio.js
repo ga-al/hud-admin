@@ -36,4 +36,42 @@
       event.preventDefault();
     });
   });
+
+  function markMediaBroken(node) {
+    if (!node) return;
+    node.classList.add("is-media-broken");
+  }
+
+  function bindImageFallback(img) {
+    if (img.dataset.mediaFallbackBound === "true") return;
+    img.dataset.mediaFallbackBound = "true";
+
+    if (img.complete && img.naturalWidth === 0) {
+      markMediaBroken(
+        img.closest('a[data-gallery], a.btn-outline-theme, a.card-link.btn')
+      );
+      return;
+    }
+
+    img.addEventListener("error", function () {
+      markMediaBroken(
+        img.closest('a[data-gallery], a.btn-outline-theme, a.card-link.btn')
+      );
+    });
+  }
+
+  document
+    .querySelectorAll(".card-body img.card-img, .card-body #links img")
+    .forEach(bindImageFallback);
+
+  document
+    .querySelectorAll(".card-body div.border.border-theme iframe")
+    .forEach(function (iframe) {
+      var frame = iframe.closest("div.border.border-theme");
+      if (!frame || iframe.dataset.mediaFallbackBound === "true") return;
+      iframe.dataset.mediaFallbackBound = "true";
+      iframe.addEventListener("error", function () {
+        markMediaBroken(frame);
+      });
+    });
 })();

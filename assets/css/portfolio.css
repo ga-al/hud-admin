@@ -56,6 +56,22 @@
   vertical-align: bottom;
 }
 
+/* Tweet media: hide broken image/video frames (no empty bordered box) */
+.card-body a.btn-outline-theme:has(> img.card-img),
+.card-body div.border.border-theme:has(iframe),
+.card-body #links a[data-gallery] {
+  overflow: hidden;
+}
+
+.card-body .is-media-broken,
+.card-body a.is-media-broken,
+.card-body div.is-media-broken {
+  display: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .pre-scrollable {
     scroll-behavior: auto;
