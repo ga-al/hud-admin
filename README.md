@@ -2,6 +2,8 @@
 
 Статичное демо кастомизации коммерческого admin-шаблона [HUD](https://www.seantheme.com/hud/) под crypto-dashboard RuExmo: tweetdeck-колонки, фильтры, карточки новостей, адаптив. Без бэкенда — контент и данные демонстрационные.
 
+**Live demo:** https://ga-al.github.io/hud-admin/
+
 ## Стек
 
 - HTML5
