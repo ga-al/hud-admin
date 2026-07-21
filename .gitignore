@@ -1,0 +1,18 @@
+# IDE
+.vscode/
+
+# Build artifacts (not needed for static demo)
+node_modules/
+src/
+gulpfile.js
+package.json
+package-lock.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Leftover TweetDeck/Mapbox bundles (not used by demo)
+assets/img/icons/*.js
+assets/img/icons/*.css
+assets/img/icons/*.svg
